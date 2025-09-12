@@ -3,155 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clip Holster OtterBox Defender - Romero Store</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; background:#f9f9f9; }
-    header { background:#000; color:#fff; padding:15px; text-align:center; }
-
-    .producto {
-      display:flex; flex-wrap:wrap;
-      max-width:1000px; margin:30px auto;
-      background:#fff; border-radius:10px; overflow:hidden;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
-      padding:20px;
-    }
-
-    /* Contenedor de imágenes */
-    .imagenes { display:flex; flex:1; align-items:flex-start; }
-
-    /* Miniaturas en columna (vertical) */
-    .miniaturas { display:flex; flex-direction:column; margin-right:15px; }
-    .miniaturas img { 
-      width:70px; 
-      margin:5px 0; 
-      cursor:pointer; 
-      border-radius:5px; 
-      border:1px solid #ddd; 
-      background:#fff;   /* Fondo blanco detrás */
-      padding:4px;       /* Espacio alrededor */
-      transition:transform 0.2s;
-      box-shadow:0 2px 6px rgba(0,0,0,0.15);
-    }
-    .miniaturas img:hover { transform:scale(1.1); border:2px solid orange; }
-
-    /* Imagen principal con zoom interactivo */
-    .imagen-principal-container {
-      flex:1; 
-      text-align:center; 
-      overflow:hidden; 
-      background:#fff;   /* Fondo blanco detrás */
-      border:1px solid #ddd;
-      max-width:400px;
-      max-height:400px;
-      position:relative;
-      padding:10px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.2); /* sombra elegante */
-      border-radius:10px;
-    }
-    .imagen-principal-container img { 
-      width:100%; 
-      max-width:100%; 
-      border-radius:10px; 
-      transform-origin:center center;
-      transition: transform 0.1s ease; 
-      cursor: grab;
-    }
-
-    /* Info */
-    .info { flex:1; padding:20px; }
-    .precio { font-size:24px; color:#e60000; font-weight:bold; }
-    .descuento { text-decoration:line-through; color:#888; margin-left:8px; }
-    .boton { display:inline-block; margin-top:15px; background:orange; color:#fff;
-      padding:15px 25px; border-radius:8px; text-decoration:none; font-size:16px; }
-    .boton:hover { background:#ff6600; }
-  </style>
+  <title>Clip Holster OtterBox Defender</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>Romero Store</h1>
-  </header>
+<body class="bg-gray-50 font-sans">
 
-  <section class="producto">
-    <div class="imagenes">
-      <!-- Miniaturas a la izquierda -->
-      <div class="miniaturas">
-        <img src="1.jpg" onclick="cambiarImagen(this)">
-        <img src="2.jpg" onclick="cambiarImagen(this)">
-        <img src="3.jpg" onclick="cambiarImagen(this)">
-        <img src="70c055cc-048e-4ae2-a49e-176d3ece95e3._CR0,393,1500,786_SX460_CB1169409_QL70_.jpg" onclick="cambiarImagen(this)">
+  <div class="max-w-5xl mx-auto p-6 bg-white shadow-md rounded-lg mt-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Miniaturas -->
+      <div class="flex md:flex-col space-x-2 md:space-x-0 md:space-y-2">
+        <img src="otterbox_final_1.jpg" alt="OtterBox Clip 1"
+             class="w-20 h-20 object-contain border rounded cursor-pointer hover:ring-2 hover:ring-blue-500"
+             onclick="document.getElementById('mainImage').src=this.src">
+        <img src="otterbox_final_2.jpg" alt="OtterBox Clip 2"
+             class="w-20 h-20 object-contain border rounded cursor-pointer hover:ring-2 hover:ring-blue-500"
+             onclick="document.getElementById('mainImage').src=this.src">
+        <img src="otterbox_final_3.jpg" alt="OtterBox Clip 3"
+             class="w-20 h-20 object-contain border rounded cursor-pointer hover:ring-2 hover:ring-blue-500"
+             onclick="document.getElementById('mainImage').src=this.src">
       </div>
 
       <!-- Imagen principal -->
-      <div class="imagen-principal-container">
-        <img id="imagenPrincipal" src="1.jpg" alt="Clip Holster OtterBox Defender">
+      <div class="relative">
+        <img id="mainImage" src="otterbox_final_1.jpg" alt="OtterBox Clip Principal"
+             class="w-full h-auto object-contain border rounded transform transition-transform duration-300 ease-in-out hover:scale-125 cursor-zoom-in">
       </div>
     </div>
 
-    <div class="info">
-      <h2>Clip Holster OtterBox Defender</h2>
-      <p class="precio">$10.00 <span class="descuento">$15.00</span></p>
-      <p>
-        Clip original, giratorio y resistente para funda Defender. <br>
-        Compatible con varios modelos de iPhone y Samsung Galaxy. <br>
-        Seguro, práctico y duradero.
+    <!-- Descripción -->
+    <div class="mt-6">
+      <h2 class="text-2xl font-bold">Clip Holster OtterBox Defender</h2>
+      <p class="mt-2 text-gray-700">
+        Clip original <strong>OtterBox Defender</strong>, color negro.  
+        Compatible con fundas OtterBox Defender para varios modelos de iPhone y Samsung Galaxy.  
+        Con clip giratorio para cinturón o bolso, y función de soporte horizontal para ver videos o hacer videollamadas.  
+        Resistente, práctico y seguro.
       </p>
-      <a href="https://wa.me/50370975249?text=Hola,%20quiero%20comprar%20el%20Clip%20Holster%20OtterBox%20Defender" class="boton">Comprar por WhatsApp</a>
+      <p class="mt-2 text-green-600 font-semibold">Disponible - Entrega inmediata</p>
     </div>
-  </section>
+  </div>
 
-  <script>
-    // Cambiar imagen principal
-    function cambiarImagen(img) {
-      const principal = document.getElementById("imagenPrincipal");
-      principal.src = img.src;
-      principal.style.transform = "scale(1) translate(0px,0px)";
-      scale = 1;
-      posX = 0;
-      posY = 0;
-    }
-
-    // Variables de zoom y movimiento
-    let scale = 1;
-    let posX = 0, posY = 0;
-    let isDragging = false;
-    let startX, startY;
-
-    const principal = document.getElementById("imagenPrincipal");
-
-    // Zoom con la rueda del mouse
-    principal.addEventListener("wheel", function(e) {
-      e.preventDefault();
-      if (e.deltaY < 0) {
-        scale += 0.1; // acercar
-      } else {
-        scale = Math.max(1, scale - 0.1); // alejar (mínimo 1x)
-      }
-      actualizarTransformacion();
-    });
-
-    // Arrastrar la imagen mientras está ampliada
-    principal.addEventListener("mousedown", function(e) {
-      isDragging = true;
-      startX = e.clientX - posX;
-      startY = e.clientY - posY;
-      principal.style.cursor = "grabbing";
-    });
-
-    window.addEventListener("mouseup", function() {
-      isDragging = false;
-      principal.style.cursor = "grab";
-    });
-
-    window.addEventListener("mousemove", function(e) {
-      if (!isDragging) return;
-      posX = e.clientX - startX;
-      posY = e.clientY - startY;
-      actualizarTransformacion();
-    });
-
-    function actualizarTransformacion() {
-      principal.style.transform = `scale(${scale}) translate(${posX/scale}px, ${posY/scale}px)`;
-    }
-  </script>
 </body>
 </html>
