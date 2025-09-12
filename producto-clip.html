@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clip Holster OtterBox Defender - Romero Store</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f9f9f9; }
+    header { background:#000; color:#fff; padding:15px; text-align:center; }
+    .producto {
+      display:flex; flex-wrap:wrap;
+      max-width:1000px; margin:30px auto;
+      background:#fff; border-radius:10px; overflow:hidden;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+    .imagenes { flex:1; padding:20px; }
+    .imagenes img { width:100%; border-radius:10px; }
+    .miniaturas { display:flex; margin-top:10px; }
+    .miniaturas img { width:70px; margin-right:10px; cursor:pointer; border-radius:5px; border:2px solid transparent; }
+    .miniaturas img:hover { border:2px solid orange; }
+    .info { flex:1; padding:20px; }
+    .precio { font-size:24px; color:#e60000; font-weight:bold; }
+    .descuento { text-decoration:line-through; color:#888; margin-left:8px; }
+    .boton { display:inline-block; margin-top:15px; background:orange; color:#fff;
+      padding:15px 25px; border-radius:8px; text-decoration:none; font-size:16px; }
+    .boton:hover { background:#ff6600; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Romero Store</h1>
+  </header>
+
+  <section class="producto">
+    <div class="imagenes">
+      <!-- Imagen principal -->
+      <img id="imagenPrincipal" src="URL_IMAGEN_CLIP" alt="Clip Holster OtterBox Defender">
+      <!-- Miniaturas -->
+      <div class="miniaturas">
+        <img src="URL_IMAGEN_CLIP" onclick="cambiarImagen(this)">
+        <img src="URL_IMAGEN_CLIP2" onclick="cambiarImagen(this)">
+        <img src="URL_IMAGEN_CLIP3" onclick="cambiarImagen(this)">
+      </div>
+    </div>
+    <div class="info">
+      <h2>Clip Holster OtterBox Defender</h2>
+      <p class="precio">$10.00 <span class="descuento">$15.00</span></p>
+      <p>Clip original, giratorio y resistente para funda Defender. Compatible con varios modelos de iPhone y Samsung Galaxy. Seguro, práctico y duradero.</p>
+      <a href="https://wa.me/50370975249?text=Hola,%20quiero%20comprar%20el%20Clip%20Holster%20OtterBox%20Defender" class="boton">Comprar por WhatsApp</a>
+    </div>
+  </section>
+
+  <script>
+    function cambiarImagen(img) {
+      document.getElementById("imagenPrincipal").src = img.src;
+    }
+  </script>
+</body>
+</html>
