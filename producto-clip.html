@@ -18,7 +18,7 @@
 
     /* Contenedor de imágenes */
     .imagenes { display:flex; flex:1; align-items:flex-start; }
-    
+
     /* Miniaturas en columna (vertical) */
     .miniaturas { display:flex; flex-direction:column; margin-right:15px; }
     .miniaturas img { 
@@ -31,22 +31,23 @@
     }
     .miniaturas img:hover { transform:scale(1.1); border:2px solid orange; }
 
-    /* Imagen principal con efecto zoom */
+    /* Imagen principal con zoom interactivo */
     .imagen-principal-container {
       flex:1; 
       text-align:center; 
-      overflow:hidden;
+      overflow:hidden; 
+      border:1px solid #ddd;
+      max-width:400px;
+      max-height:400px;
+      position:relative;
     }
     .imagen-principal-container img { 
-      width:90%; 
-      max-width:350px; 
+      width:100%; 
+      max-width:100%; 
       border-radius:10px; 
-      transition: transform 0.3s ease; 
-      cursor: zoom-in;
-    }
-    .imagen-principal-container img:hover {
-      transform: scale(1.5); /* zoom */
-      cursor: zoom-out;
+      transform-origin:center center;
+      transition: transform 0.1s ease;
+      cursor: grab;
     }
 
     /* Info */
@@ -92,8 +93,57 @@
   </section>
 
   <script>
+    // Cambiar imagen principal
     function cambiarImagen(img) {
-      document.getElementById("imagenPrincipal").src = img.src;
+      const principal = document.getElementById("imagenPrincipal");
+      principal.src = img.src;
+      principal.style.transform = "scale(1) translate(0px,0px)";
+      scale = 1;
+      posX = 0;
+      posY = 0;
+    }
+
+    // Variables de zoom y movimiento
+    let scale = 1;
+    let posX = 0, posY = 0;
+    let isDragging = false;
+    let startX, startY;
+
+    const principal = document.getElementById("imagenPrincipal");
+
+    // Zoom con la rueda del mouse
+    principal.addEventListener("wheel", function(e) {
+      e.preventDefault();
+      if (e.deltaY < 0) {
+        scale += 0.1; // acercar
+      } else {
+        scale = Math.max(1, scale - 0.1); // alejar (mínimo 1x)
+      }
+      actualizarTransformacion();
+    });
+
+    // Arrastrar la imagen mientras está ampliada
+    principal.addEventListener("mousedown", function(e) {
+      isDragging = true;
+      startX = e.clientX - posX;
+      startY = e.clientY - posY;
+      principal.style.cursor = "grabbing";
+    });
+
+    window.addEventListener("mouseup", function() {
+      isDragging = false;
+      principal.style.cursor = "grab";
+    });
+
+    window.addEventListener("mousemove", function(e) {
+      if (!isDragging) return;
+      posX = e.clientX - startX;
+      posY = e.clientY - startY;
+      actualizarTransformacion();
+    });
+
+    function actualizarTransformacion() {
+      principal.style.transform = `scale(${scale}) translate(${posX/scale}px, ${posY/scale}px)`;
     }
   </script>
 </body>
