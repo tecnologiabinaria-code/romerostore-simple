@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vestido Morado Elegante - Romero Store</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f9f9f9; }
+    header { background:#000; color:#fff; padding:15px; text-align:center; }
+    .producto {
+      display:flex; flex-wrap:wrap;
+      max-width:1000px; margin:30px auto;
+      background:#fff; border-radius:10px; overflow:hidden;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+    .imagenes { flex:1; padding:20px; }
+    .imagenes img { width:100%; border-radius:10px; }
+    .miniaturas { display:flex; margin-top:10px; }
+    .miniaturas img { width:70px; margin-right:10px; cursor:pointer; border-radius:5px; border:2px solid transparent; }
+    .miniaturas img:hover { border:2px solid orange; }
+    .info { flex:1; padding:20px; }
+    .precio { font-size:24px; color:#e60000; font-weight:bold; }
+    .descuento { text-decoration:line-through; color:#888; margin-left:8px; }
+    .boton { display:inline-block; margin-top:15px; background:orange; color:#fff;
+      padding:15px 25px; border-radius:8px; text-decoration:none; font-size:16px; }
+    .boton:hover { background:#ff6600; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Romero Store</h1>
+  </header>
+
+  <section class="producto">
+    <div class="imagenes">
+      <!-- Imagen principal -->
+      <img id="imagenPrincipal" src="URL_IMAGEN_VESTIDO" alt="Vestido Morado Elegante">
+      <!-- Miniaturas -->
+      <div class="miniaturas">
+        <img src="URL_IMAGEN_VESTIDO" onclick="cambiarImagen(this)">
+        <img src="URL_IMAGEN_VESTIDO2" onclick="cambiarImagen(this)">
+        <img src="URL_IMAGEN_VESTIDO3" onclick="cambiarImagen(this)">
+      </div>
+    </div>
+    <div class="info">
+      <h2>Vestido Morado Elegante</h2>
+      <p class="precio">$25.00 <span class="descuento">$35.00</span></p>
+      <p>Corte moderno y tela suave. Ideal para eventos formales o casuales. Diseño elegante que realza la figura y garantiza comodidad.</p>
+      <a href="https://wa.me/50370975249?text=Hola,%20quiero%20comprar%20el%20Vestido%20Morado%20Elegante" class="boton">Comprar por WhatsApp</a>
+    </div>
+  </section>
+
+  <script>
+    function cambiarImagen(img) {
+      document.getElementById("imagenPrincipal").src = img.src;
+    }
+  </script>
+</body>
+</html>
