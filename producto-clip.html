@@ -13,11 +13,24 @@
       background:#fff; border-radius:10px; overflow:hidden;
       box-shadow:0 2px 8px rgba(0,0,0,0.1);
     }
-    .imagenes { flex:1; padding:20px; }
-    .imagenes img { width:100%; border-radius:10px; }
-    .miniaturas { display:flex; margin-top:10px; }
-    .miniaturas img { width:70px; margin-right:10px; cursor:pointer; border-radius:5px; border:2px solid transparent; }
-    .miniaturas img:hover { border:2px solid orange; }
+    .imagenes { flex:1; padding:20px; text-align:center; }
+    .imagenes img { 
+      width:90%; 
+      max-width:350px; 
+      display:block; 
+      margin:auto; 
+      border-radius:10px;
+    }
+    .miniaturas { display:flex; justify-content:center; margin-top:10px; flex-wrap:wrap; }
+    .miniaturas img { 
+      width:70px; 
+      margin:5px; 
+      cursor:pointer; 
+      border-radius:5px; 
+      border:1px solid #ddd; 
+      transition:transform 0.2s;
+    }
+    .miniaturas img:hover { transform:scale(1.1); border:2px solid orange; }
     .info { flex:1; padding:20px; }
     .precio { font-size:24px; color:#e60000; font-weight:bold; }
     .descuento { text-decoration:line-through; color:#888; margin-left:8px; }
@@ -34,18 +47,23 @@
   <section class="producto">
     <div class="imagenes">
       <!-- Imagen principal -->
-      <img id="imagenPrincipal" src="URL_IMAGEN_CLIP" alt="Clip Holster OtterBox Defender">
+      <img id="imagenPrincipal" src="1.jpg" alt="Clip Holster OtterBox Defender">
       <!-- Miniaturas -->
       <div class="miniaturas">
-        <img src="URL_IMAGEN_CLIP" onclick="cambiarImagen(this)">
-        <img src="URL_IMAGEN_CLIP2" onclick="cambiarImagen(this)">
-        <img src="URL_IMAGEN_CLIP3" onclick="cambiarImagen(this)">
+        <img src="1.jpg" onclick="cambiarImagen(this)">
+        <img src="2.jpg" onclick="cambiarImagen(this)">
+        <img src="3.jpg" onclick="cambiarImagen(this)">
+        <img src="70c055cc-048e-4ae2-a49e-176d3ece95e3._CR0,393,1500,786_SX460_CB1169409_QL70_.jpg" onclick="cambiarImagen(this)">
       </div>
     </div>
     <div class="info">
       <h2>Clip Holster OtterBox Defender</h2>
       <p class="precio">$10.00 <span class="descuento">$15.00</span></p>
-      <p>Clip original, giratorio y resistente para funda Defender. Compatible con varios modelos de iPhone y Samsung Galaxy. Seguro, práctico y duradero.</p>
+      <p>
+        Clip original, giratorio y resistente para funda Defender. <br>
+        Compatible con varios modelos de iPhone y Samsung Galaxy. <br>
+        Seguro, práctico y duradero.
+      </p>
       <a href="https://wa.me/50370975249?text=Hola,%20quiero%20comprar%20el%20Clip%20Holster%20OtterBox%20Defender" class="boton">Comprar por WhatsApp</a>
     </div>
   </section>
