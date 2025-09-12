@@ -38,7 +38,16 @@
       display:flex; flex-direction:column;
     }
     .card:hover { transform:scale(1.03); }
-    .card img { width:100%; height:220px; object-fit:cover; }
+
+    /* Imagen más pequeña y ajustada */
+    .card img { 
+      width:100%; 
+      height:180px;        /* antes 220px */
+      object-fit:contain;  /* ajusta sin recortar */
+      padding:10px;        /* espacio alrededor */
+      background:#fff;
+    }
+
     .info { padding:15px; flex:1; display:flex; flex-direction:column; justify-content:space-between; }
     .info h3 { font-size:18px; margin:0 0 10px; }
     .precio { font-size:20px; color:#e60000; font-weight:bold; }
@@ -62,7 +71,7 @@
     @media (max-width: 600px) {
       header { flex-direction:column; text-align:center; }
       header input { width:100%; margin-top:10px; }
-      .card img { height:180px; }
+      .card img { height:150px; }   /* más pequeño en móviles */
       .info h3 { font-size:16px; }
       .precio { font-size:18px; }
     }
