@@ -7,30 +7,49 @@
   <style>
     body { font-family: Arial, sans-serif; margin:0; background:#f9f9f9; }
     header { background:#000; color:#fff; padding:15px; text-align:center; }
+
     .producto {
       display:flex; flex-wrap:wrap;
       max-width:1000px; margin:30px auto;
       background:#fff; border-radius:10px; overflow:hidden;
       box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      padding:20px;
     }
-    .imagenes { flex:1; padding:20px; text-align:center; }
-    .imagenes img { 
-      width:90%; 
-      max-width:350px; 
-      display:block; 
-      margin:auto; 
-      border-radius:10px;
-    }
-    .miniaturas { display:flex; justify-content:center; margin-top:10px; flex-wrap:wrap; }
+
+    /* Contenedor de imágenes */
+    .imagenes { display:flex; flex:1; align-items:flex-start; }
+    
+    /* Miniaturas en columna (vertical) */
+    .miniaturas { display:flex; flex-direction:column; margin-right:15px; }
     .miniaturas img { 
       width:70px; 
-      margin:5px; 
+      margin:5px 0; 
       cursor:pointer; 
       border-radius:5px; 
       border:1px solid #ddd; 
       transition:transform 0.2s;
     }
     .miniaturas img:hover { transform:scale(1.1); border:2px solid orange; }
+
+    /* Imagen principal con efecto zoom */
+    .imagen-principal-container {
+      flex:1; 
+      text-align:center; 
+      overflow:hidden;
+    }
+    .imagen-principal-container img { 
+      width:90%; 
+      max-width:350px; 
+      border-radius:10px; 
+      transition: transform 0.3s ease; 
+      cursor: zoom-in;
+    }
+    .imagen-principal-container img:hover {
+      transform: scale(1.5); /* zoom */
+      cursor: zoom-out;
+    }
+
+    /* Info */
     .info { flex:1; padding:20px; }
     .precio { font-size:24px; color:#e60000; font-weight:bold; }
     .descuento { text-decoration:line-through; color:#888; margin-left:8px; }
@@ -46,16 +65,20 @@
 
   <section class="producto">
     <div class="imagenes">
-      <!-- Imagen principal -->
-      <img id="imagenPrincipal" src="1.jpg" alt="Clip Holster OtterBox Defender">
-      <!-- Miniaturas -->
+      <!-- Miniaturas a la izquierda -->
       <div class="miniaturas">
         <img src="1.jpg" onclick="cambiarImagen(this)">
         <img src="2.jpg" onclick="cambiarImagen(this)">
         <img src="3.jpg" onclick="cambiarImagen(this)">
         <img src="70c055cc-048e-4ae2-a49e-176d3ece95e3._CR0,393,1500,786_SX460_CB1169409_QL70_.jpg" onclick="cambiarImagen(this)">
       </div>
+
+      <!-- Imagen principal -->
+      <div class="imagen-principal-container">
+        <img id="imagenPrincipal" src="1.jpg" alt="Clip Holster OtterBox Defender">
+      </div>
     </div>
+
     <div class="info">
       <h2>Clip Holster OtterBox Defender</h2>
       <p class="precio">$10.00 <span class="descuento">$15.00</span></p>
