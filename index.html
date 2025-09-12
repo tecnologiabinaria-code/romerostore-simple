@@ -3,115 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Romero Store</title>
+  <title>Clip Holster OtterBox Defender - Romero Store</title>
   <style>
     body { font-family: Arial, sans-serif; margin:0; background:#f9f9f9; }
-
-    /* Header */
-    header {
-      background:#000; color:#fff; padding:15px;
+    header { background:#000; color:#fff; padding:15px; text-align:center; }
+    .producto {
       display:flex; flex-wrap:wrap;
-      justify-content:space-between; align-items:center;
+      max-width:1000px; margin:30px auto;
+      background:#fff; border-radius:10px; overflow:hidden;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
     }
-    header .logo { font-size:20px; font-weight:bold; margin-bottom:10px; }
-    header input {
-      padding:8px; border-radius:5px; border:none; width:250px;
-      max-width:100%;
-    }
-
-    /* Grid productos */
-    .grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap:20px;
-      padding:20px;
-      max-width:1200px;
-      margin:auto;
-    }
-
-    .card {
-      background:#fff;
+    .imagenes { flex:1; padding:20px; text-align:center; }
+    .imagenes img { 
+      width:90%; 
+      max-width:350px; 
+      display:block; 
+      margin:auto; 
       border-radius:10px;
-      box-shadow:0 2px 5px rgba(0,0,0,0.1);
-      overflow:hidden;
+    }
+    .miniaturas { display:flex; justify-content:center; margin-top:10px; flex-wrap:wrap; }
+    .miniaturas img { 
+      width:70px; 
+      margin:5px; 
+      cursor:pointer; 
+      border-radius:5px; 
+      border:1px solid #ddd; 
       transition:transform 0.2s;
-      display:flex; flex-direction:column;
     }
-    .card:hover { transform:scale(1.03); }
-
-    /* Imagen más pequeña y ajustada */
-    .card img { 
-      width:100%; 
-      height:180px;        /* antes 220px */
-      object-fit:contain;  /* ajusta sin recortar */
-      padding:10px;        /* espacio alrededor */
-      background:#fff;
-    }
-
-    .info { padding:15px; flex:1; display:flex; flex-direction:column; justify-content:space-between; }
-    .info h3 { font-size:18px; margin:0 0 10px; }
-    .precio { font-size:20px; color:#e60000; font-weight:bold; }
-    .descuento { text-decoration:line-through; color:#888; font-size:14px; margin-left:8px; }
-    .whatsapp {
-      display:inline-block; margin-top:10px; background:orange; color:#fff;
-      padding:10px 18px; border-radius:5px; text-decoration:none; font-size:15px;
-      text-align:center;
-    }
-    .whatsapp:hover { background:#ff6600; }
-
-    footer {
-      text-align:center;
-      padding:20px;
-      background:#000;
-      color:#fff;
-      margin-top:30px;
-    }
-
-    /* Responsive ajustes */
-    @media (max-width: 600px) {
-      header { flex-direction:column; text-align:center; }
-      header input { width:100%; margin-top:10px; }
-      .card img { height:150px; }   /* más pequeño en móviles */
-      .info h3 { font-size:16px; }
-      .precio { font-size:18px; }
-    }
+    .miniaturas img:hover { transform:scale(1.1); border:2px solid orange; }
+    .info { flex:1; padding:20px; }
+    .precio { font-size:24px; color:#e60000; font-weight:bold; }
+    .descuento { text-decoration:line-through; color:#888; margin-left:8px; }
+    .boton { display:inline-block; margin-top:15px; background:orange; color:#fff;
+      padding:15px 25px; border-radius:8px; text-decoration:none; font-size:16px; }
+    .boton:hover { background:#ff6600; }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <div class="logo">Romero Store</div>
-    <input type="text" placeholder="Buscar productos...">
+    <h1>Romero Store</h1>
   </header>
 
-  <!-- Catálogo de productos -->
-  <section class="grid">
-
-    <!-- Producto Clip -->
-    <div class="card">
-      <a href="producto-clip.html"><img src="clip.png" alt="Clip Holster OtterBox Defender"></a>
-      <div class="info">
-        <h3>Clip Holster OtterBox Defender</h3>
-        <p class="precio">$10.00 <span class="descuento">$15.00</span></p>
-        <a href="https://wa.me/50370975249?text=Hola,%20quiero%20el%20Clip%20Holster%20OtterBox%20Defender" class="whatsapp">Comprar</a>
+  <section class="producto">
+    <div class="imagenes">
+      <!-- Imagen principal -->
+      <img id="imagenPrincipal" src="1.jpg" alt="Clip Holster OtterBox Defender">
+      <!-- Miniaturas -->
+      <div class="miniaturas">
+        <img src="1.jpg" onclick="cambiarImagen(this)">
+        <img src="2.jpg" onclick="cambiarImagen(this)">
+        <img src="3.jpg" onclick="cambiarImagen(this)">
+        <img src="70c055cc-048e-4ae2-a49e-176d3ece95e3._CR0,393,1500,786_SX460_CB1169409_QL70_.jpg" onclick="cambiarImagen(this)">
       </div>
     </div>
-
-    <!-- Producto Vestido -->
-    <div class="card">
-      <a href="producto-vestido.html"><img src="vestido.png" alt="Vestido Morado Elegante"></a>
-      <div class="info">
-        <h3>Vestido Morado Elegante</h3>
-        <p class="precio">$25.00 <span class="descuento">$35.00</span></p>
-        <a href="https://wa.me/50370975249?text=Hola,%20quiero%20el%20Vestido%20Morado%20Elegante" class="whatsapp">Comprar</a>
-      </div>
+    <div class="info">
+      <h2>Clip Holster OtterBox Defender</h2>
+      <p class="precio">$10.00 <span class="descuento">$15.00</span></p>
+      <p>Clip original, giratorio y resistente para funda Defender. Compatible con varios modelos de iPhone y Samsung Galaxy. Seguro, práctico y duradero.</p>
+      <a href="https://wa.me/50370975249?text=Hola,%20quiero%20comprar%20el%20Clip%20Holster%20OtterBox%20Defender" class="boton">Comprar por WhatsApp</a>
     </div>
-
   </section>
 
-  <!-- Footer -->
-  <footer>
-    © 2025 Romero Store — Todos los derechos reservados
-  </footer>
+  <script>
+    function cambiarImagen(img) {
+      document.getElementById("imagenPrincipal").src = img.src;
+    }
+  </script>
 </body>
 </html>
