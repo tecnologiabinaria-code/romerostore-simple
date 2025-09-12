@@ -4,50 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Romero Store</title>
-  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-100 font-sans">
 
   <!-- Header -->
-  <header class="header">
-    <h1>Romero Store</h1>
-    <input type="text" placeholder="Buscar productos..." class="search">
+  <header class="bg-black text-white p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Romero Store</h1>
+    <input type="text" placeholder="Buscar productos..." 
+           class="px-3 py-2 rounded text-black w-60">
   </header>
 
   <!-- Catálogo -->
-  <main class="catalogo">
-
+  <main class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 max-w-6xl mx-auto">
+    
     <!-- Producto 1: Clip -->
-    <div class="producto">
+    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center">
       <a href="producto-clip.html">
-        <img src="otterbox_final_1.jpg" alt="Clip Holster OtterBox Defender" class="producto-img">
+        <img src="otterbox_final_1.jpg" alt="Clip Holster OtterBox Defender" 
+             class="w-40 h-40 object-contain mb-4">
       </a>
-      <h2>Clip Holster OtterBox Defender</h2>
-      <p class="precio">
-        <span class="precio-oferta">$10.00</span>
-        <span class="precio-normal">$15.00</span>
+      <h2 class="text-lg font-semibold">Clip Holster OtterBox Defender</h2>
+      <p class="mt-2">
+        <span class="text-red-600 font-bold text-xl">$10.00</span>
+        <span class="line-through text-gray-400 ml-2">$15.00</span>
       </p>
-      <button class="btn-comprar">Comprar</button>
+      <button class="mt-4 w-full bg-orange-500 text-white py-2 rounded-lg font-bold hover:bg-orange-600">
+        Comprar
+      </button>
     </div>
 
     <!-- Producto 2: Vestido -->
-    <div class="producto">
+    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center">
       <a href="producto-vestido.html">
-        <img src="vestido.png" alt="Vestido Morado Elegante" class="producto-img">
+        <img src="vestido.png" alt="Vestido Morado Elegante" 
+             class="w-40 h-40 object-contain mb-4">
       </a>
-      <h2>Vestido Morado Elegante</h2>
-      <p class="precio">
-        <span class="precio-oferta">$25.00</span>
-        <span class="precio-normal">$35.00</span>
+      <h2 class="text-lg font-semibold">Vestido Morado Elegante</h2>
+      <p class="mt-2">
+        <span class="text-red-600 font-bold text-xl">$25.00</span>
+        <span class="line-through text-gray-400 ml-2">$35.00</span>
       </p>
-      <button class="btn-comprar">Comprar</button>
+      <button class="mt-4 w-full bg-orange-500 text-white py-2 rounded-lg font-bold hover:bg-orange-600">
+        Comprar
+      </button>
     </div>
 
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 Romero Store — Todos los derechos reservados</p>
+  <footer class="bg-black text-white text-center py-4 mt-8">
+    © 2025 Romero Store — Todos los derechos reservados
   </footer>
 
 </body>
