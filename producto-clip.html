@@ -3,74 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clip Holster OtterBox Defender</title>
+  <title>Clip Holster OtterBox Defender | Romero Store</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Estilo para el zoom dinámico */
-    #mainImage {
-      transform-origin: center center;
-      transition: transform 0.2s ease-in-out;
-    }
-  </style>
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-gray-100 font-sans">
 
-  <div class="max-w-5xl mx-auto p-6 bg-white shadow-md rounded-lg mt-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      
+  <!-- Contenedor principal -->
+  <main class="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Galería de imágenes -->
+    <div class="flex">
       <!-- Miniaturas -->
-      <div class="flex md:flex-col space-x-2 md:space-x-0 md:space-y-2">
-        <img src="otterbox_final_1.jpg" alt="OtterBox Clip 1"
-             class="w-20 h-20 object-contain border rounded cursor-pointer hover:ring-2 hover:ring-blue-500"
-             onclick="cambiarImagen(this.src)">
-        <img src="otterbox_final_2.jpg" alt="OtterBox Clip 2"
-             class="w-20 h-20 object-contain border rounded cursor-pointer hover:ring-2 hover:ring-blue-500"
-             onclick="cambiarImagen(this.src)">
-        <img src="otterbox_final_3.jpg" alt="OtterBox Clip 3"
-             class="w-20 h-20 object-contain border rounded cursor-pointer hover:ring-2 hover:ring-blue-500"
-             onclick="cambiarImagen(this.src)">
+      <div class="flex flex-col space-y-3 mr-4">
+        <img src="otterbox_final_1.jpg" alt="Miniatura 1" class="thumbnail w-20 h-20 object-contain border cursor-pointer rounded">
+        <img src="otterbox_final_2.jpg" alt="Miniatura 2" class="thumbnail w-20 h-20 object-contain border cursor-pointer rounded">
+        <img src="otterbox_final_3.jpg" alt="Miniatura 3" class="thumbnail w-20 h-20 object-contain border cursor-pointer rounded">
       </div>
 
       <!-- Imagen principal -->
-      <div class="relative overflow-hidden border rounded">
-        <img id="mainImage" src="otterbox_final_1.jpg" alt="OtterBox Clip Principal"
-             class="w-full h-auto object-contain cursor-zoom-in">
+      <div class="flex-1">
+        <img id="mainImage" src="otterbox_final_1.jpg" alt="Clip Holster OtterBox Defender" 
+             class="w-full h-96 object-contain border rounded">
       </div>
     </div>
 
-    <!-- Descripción -->
-    <div class="mt-6">
-      <h2 class="text-2xl font-bold">Clip Holster OtterBox Defender</h2>
-      <p class="mt-2 text-gray-700">
-        Clip original <strong>OtterBox Defender</strong>, color negro.  
-        Compatible con fundas OtterBox Defender para varios modelos de iPhone y Samsung Galaxy.  
-        Con clip giratorio para cinturón o bolso, y función de soporte horizontal para ver videos o hacer videollamadas.  
+    <!-- Información del producto -->
+    <div>
+      <h1 class="text-2xl font-bold mb-2">Clip Holster OtterBox Defender</h1>
+      <p class="text-gray-700 mb-4">
+        Clip original <strong>OtterBox Defender</strong>, color negro. Compatible con fundas OtterBox Defender para varios modelos de iPhone y Samsung Galaxy. 
+        Con clip giratorio para cinturón o bolso, y función de soporte horizontal para ver videos o hacer videollamadas. 
         Resistente, práctico y seguro.
       </p>
-      <p class="mt-2 text-green-600 font-semibold">Disponible - Entrega inmediata</p>
+
+      <!-- Precio -->
+      <div class="mb-4">
+        <span class="text-3xl font-bold text-red-600">$10.00</span>
+        <span class="line-through text-gray-400 ml-3">$15.00</span>
+      </div>
+
+      <!-- Botón Comprar -->
+      <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-lg shadow-md text-lg">
+        Comprar por WhatsApp
+      </button>
     </div>
-  </div>
+  </main>
 
+  <!-- Script para cambiar imagen principal -->
   <script>
-    const mainImage = document.getElementById('mainImage');
-    let scale = 1;
+    const thumbnails = document.querySelectorAll(".thumbnail");
+    const mainImage = document.getElementById("mainImage");
 
-    // Cambiar imagen principal al hacer clic en miniatura
-    function cambiarImagen(src) {
-      mainImage.src = src;
-      scale = 1;
-      mainImage.style.transform = `scale(${scale})`;
-    }
-
-    // Zoom con la rueda del mouse
-    mainImage.addEventListener("wheel", function(e) {
-      e.preventDefault();
-      if (e.deltaY < 0) {
-        scale += 0.1; // Acercar
-      } else {
-        scale = Math.max(1, scale - 0.1); // Alejar (mínimo 1x)
-      }
-      mainImage.style.transform = `scale(${scale})`;
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener("click", () => {
+        mainImage.src = thumb.src;
+      });
     });
   </script>
 
