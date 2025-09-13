@@ -8,15 +8,16 @@
 </head>
 <body class="bg-gray-100 font-sans">
 
-  <!-- Header -->
+  <!-- ================= HEADER ================= -->
   <header class="bg-black text-white p-4 flex justify-between items-center">
     <h1 class="text-xl font-bold">Romero Store</h1>
     <input type="text" placeholder="Buscar productos..." class="px-3 py-2 rounded text-black w-64">
   </header>
 
-  <!-- Carrusel -->
+  <!-- ================= INICIO BANNERS (CARRUSEL) ================= -->
   <section class="relative w-full max-w-6xl mx-auto mt-4 overflow-hidden rounded-lg shadow-lg">
-    <!-- Banner 1 mejorado -->
+
+    <!-- Banner 1 -->
     <div class="banner absolute inset-0 w-full h-64">
       <img src="banner.jpg" alt="Romero Store Accesorios y Moda" class="w-full h-64 object-cover">
       <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white">
@@ -65,8 +66,9 @@
       <span class="dot w-4 h-4 bg-white rounded-full opacity-50 cursor-pointer transition-transform transform scale-75"></span>
     </div>
   </section>
+  <!-- ================= FIN BANNERS ================= -->
 
-  <!-- Catálogo -->
+  <!-- ================= INICIO CATÁLOGO ================= -->
   <section id="catalogo" class="max-w-6xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
     <!-- Producto 1 -->
     <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
@@ -98,13 +100,14 @@
       </a>
     </div>
   </section>
+  <!-- ================= FIN CATÁLOGO ================= -->
 
-  <!-- Footer -->
+  <!-- ================= FOOTER ================= -->
   <footer class="bg-black text-white text-center py-4 mt-6">
     © 2025 Romero Store — Todos los derechos reservados
   </footer>
 
-  <!-- Script carrusel -->
+  <!-- ================= SCRIPT CARRUSEL ================= -->
   <script>
     const banners = document.querySelectorAll('.banner');
     const dots = document.querySelectorAll('.dot');
