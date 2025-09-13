@@ -3,135 +3,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clip Holster OtterBox Defender | Romero Store</title>
+  <title>Romero Store</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .thumbnail.active { border: 2px solid #f97316; }
-    .image-container { overflow: hidden; cursor: grab; }
-    .image-container:active { cursor: grabbing; }
+    .fade {
+      animation: fadeEffect 1s ease-in-out;
+    }
+    @keyframes fadeEffect {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .dot {
+      transition: all 0.3s ease-in-out;
+    }
+    .dot.active {
+      transform: scale(1.5);
+    }
   </style>
 </head>
 <body class="bg-gray-100 font-sans">
 
-  <!-- Contenedor principal -->
-  <main class="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+  <!-- Header -->
+  <header class="bg-black text-white p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Romero Store</h1>
+    <input type="text" placeholder="Buscar productos..." 
+           class="px-3 py-2 rounded text-black w-60">
+  </header>
 
-    <!-- Galería de imágenes -->
-    <div class="flex">
-      <!-- Miniaturas -->
-      <div class="flex flex-col space-y-3 mr-4">
-        <img src="otterbox_final_1.jpg" class="thumbnail w-20 h-20 object-contain border cursor-pointer rounded active">
-        <img src="otterbox_final_2.jpg" class="thumbnail w-20 h-20 object-contain border cursor-pointer rounded">
-        <img src="otterbox_final_3.jpg" class="thumbnail w-20 h-20 object-contain border cursor-pointer rounded">
-      </div>
+  <!-- Slider de Banners -->
+  <section class="relative w-full h-64 overflow-hidden">
 
-      <!-- Imagen principal -->
-      <div class="flex-1 relative border rounded image-container">
-        <img id="mainImage" src="otterbox_final_1.jpg"
-             class="w-full h-96 object-contain transform transition-transform duration-200 select-none"
-             draggable="false">
+    <!-- Banner 1 -->
+    <div class="banner absolute inset-0 w-full h-64">
+      <img src="banner.jpg" alt="Banner Romero Store" class="w-full h-64 object-cover">
+      <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold">Bienvenido a Romero Store</h2>
+        <p class="mt-2 text-lg">Accesorios y moda con entrega rápida</p>
+        <a href="#catalogo" class="mt-4 bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-lg font-bold">
+          Ver catálogo
+        </a>
       </div>
     </div>
 
-    <!-- Información del producto -->
-    <div>
-      <h1 class="text-2xl font-bold mb-2">Clip Holster OtterBox Defender</h1>
-      <p class="text-gray-700 mb-4">
-        Clip original <strong>OtterBox Defender</strong>, color negro. Compatible con fundas OtterBox Defender para varios modelos de iPhone y Samsung Galaxy.
-        Con clip giratorio para cinturón o bolso, y función de soporte horizontal para ver videos o hacer videollamadas.
-        Resistente, práctico y seguro.
-      </p>
-
-      <!-- Promoción y stock -->
-      <div class="flex items-center space-x-4 mb-4">
-        <span class="bg-green-100 text-green-700 font-semibold px-2 py-1 rounded flex items-center">
-          🔥 Oferta limitada
-        </span>
-        <span id="stock" class="text-sm text-gray-600">Quedan 5 unidades</span>
+    <!-- Banner 2 -->
+    <div class="banner absolute inset-0 w-full h-64 hidden">
+      <div class="w-full h-64 bg-gradient-to-r from-purple-700 via-indigo-700 to-blue-600 flex flex-col justify-center items-center text-center text-white">
+        <h2 class="text-3xl md:text-5xl font-bold drop-shadow-lg">Romero Store</h2>
+        <p class="mt-3 text-lg md:text-xl">Accesorios y moda con estilo — Entrega rápida</p>
+        <a href="#catalogo" class="mt-5 bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-bold shadow-lg">
+          Ver catálogo
+        </a>
       </div>
+    </div>
 
-      <!-- Precio -->
-      <div class="mb-4">
-        <span class="text-3xl font-bold text-red-600">$10.00</span>
-        <span class="line-through text-gray-400 ml-3">$15.00</span>
+    <!-- Banner 3 (Promoción 2025) -->
+    <div class="banner absolute inset-0 w-full h-64 hidden">
+      <div class="w-full h-64 bg-gradient-to-r from-pink-600 via-red-500 to-yellow-500 flex flex-col justify-center items-center text-center text-white">
+        <h2 class="text-3xl md:text-5xl font-bold drop-shadow-lg">✨ Nuevos Productos 2025</h2>
+        <p class="mt-3 text-lg md:text-xl">Ofertas especiales en moda y accesorios</p>
+        <a href="#catalogo" class="mt-5 bg-black hover:bg-gray-800 px-6 py-3 rounded-lg font-bold shadow-lg">
+          Comprar ahora
+        </a>
       </div>
+    </div>
 
-      <!-- Botón WhatsApp -->
-      <a href="https://wa.me/50312345678?text=Hola,%20quiero%20comprar%20el%20Clip%20Holster%20OtterBox%20Defender"
-         target="_blank"
-         class="block w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-lg shadow-md text-lg text-center">
-        Comprar por WhatsApp
+    <!-- Botones navegación -->
+    <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-40 text-white px-3 py-2 rounded-full hover:bg-opacity-70">
+      ⬅️
+    </button>
+    <button id="nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-40 text-white px-3 py-2 rounded-full hover:bg-opacity-70">
+      ➡️
+    </button>
+
+    <!-- Indicadores -->
+    <div class="absolute bottom-6 w-full flex flex-col items-center">
+      <div class="flex space-x-3">
+        <span class="dot w-4 h-4 bg-white rounded-full opacity-50 cursor-pointer"></span>
+        <span class="dot w-4 h-4 bg-white rounded-full opacity-50 cursor-pointer"></span>
+        <span class="dot w-4 h-4 bg-white rounded-full opacity-50 cursor-pointer"></span>
+      </div>
+      <p id="bannerCounter" class="text-white text-sm mt-2">1 / 3</p>
+    </div>
+  </section>
+
+  <!-- Catálogo -->
+  <main id="catalogo" class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 max-w-6xl mx-auto">
+    
+    <!-- Producto 1 -->
+    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center">
+      <a href="producto-clip.html">
+        <img src="otterbox_final_1.jpg" alt="Clip Holster OtterBox Defender" 
+             class="w-40 h-40 object-contain mb-4">
       </a>
-
-      <!-- Botón Guardar -->
-      <div class="mt-4 flex items-center space-x-2">
-        <button id="saveBtn" class="flex items-center space-x-1 bg-red-100 hover:bg-red-200 text-red-600 px-3 py-2 rounded shadow">
-          ❤️ <span>Guardar</span>
-        </button>
-        <span id="saveCount" class="text-gray-600">0 guardados</span>
-      </div>
+      <h2 class="text-lg font-semibold">Clip Holster OtterBox Defender</h2>
+      <p class="mt-2">
+        <span class="text-red-600 font-bold text-xl">$10.00</span>
+        <span class="line-through text-gray-400 ml-2">$15.00</span>
+      </p>
+      <button class="mt-4 w-full bg-orange-500 text-white py-2 rounded-lg font-bold hover:bg-orange-600">
+        Comprar
+      </button>
     </div>
+
+    <!-- Producto 2 -->
+    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center">
+      <a href="producto-vestido.html">
+        <img src="vestido.png" alt="Vestido Morado Elegante" 
+             class="w-40 h-40 object-contain mb-4">
+      </a>
+      <h2 class="text-lg font-semibold">Vestido Morado Elegante</h2>
+      <p class="mt-2">
+        <span class="text-red-600 font-bold text-xl">$25.00</span>
+        <span class="line-through text-gray-400 ml-2">$35.00</span>
+      </p>
+      <button class="mt-4 w-full bg-orange-500 text-white py-2 rounded-lg font-bold hover:bg-orange-600">
+        Comprar
+      </button>
+    </div>
+
   </main>
 
-  <!-- Script -->
-  <script>
-    const thumbnails = document.querySelectorAll(".thumbnail");
-    const mainImage = document.getElementById("mainImage");
+  <!-- Footer -->
+  <footer class="bg-black text-white text-center py-4 mt-8">
+    © 2025 Romero Store — Todos los derechos reservados
+  </footer>
 
-    // Miniaturas
-    thumbnails.forEach(thumb => {
-      thumb.addEventListener("click", () => {
-        mainImage.src = thumb.src;
-        thumbnails.forEach(t => t.classList.remove("active"));
-        thumb.classList.add("active");
+  <!-- Script Slider -->
+  <script>
+    let currentIndex = 0;
+    const banners = document.querySelectorAll('.banner');
+    const dots = document.querySelectorAll('.dot');
+    const counter = document.getElementById("bannerCounter");
+
+    function showBanner(index) {
+      banners.forEach((banner, i) => {
+        banner.classList.add('hidden');
+        banner.classList.remove('fade');
+        dots[i].classList.remove('bg-orange-500', 'active');
+        dots[i].classList.add('bg-white', 'opacity-50');
+        if (i === index) {
+          banner.classList.remove('hidden');
+          banner.classList.add('fade');
+          dots[i].classList.remove('bg-white', 'opacity-50');
+          dots[i].classList.add('bg-orange-500', 'active');
+        }
+      });
+      counter.textContent = `${index + 1} / ${banners.length}`;
+    }
+
+    function nextBanner() {
+      currentIndex = (currentIndex + 1) % banners.length;
+      showBanner(currentIndex);
+    }
+
+    function prevBanner() {
+      currentIndex = (currentIndex - 1 + banners.length) % banners.length;
+      showBanner(currentIndex);
+    }
+
+    // Botones manuales
+    document.getElementById("nextBtn").addEventListener("click", nextBanner);
+    document.getElementById("prevBtn").addEventListener("click", prevBanner);
+
+    // Clic en indicadores
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        currentIndex = index;
+        showBanner(currentIndex);
       });
     });
 
-    // Zoom + mover con arrastre
-    let scale = 1, posX = 0, posY = 0, startX, startY, isDragging = false;
+    // Cambio automático cada 5s
+    setInterval(nextBanner, 5000);
 
-    mainImage.addEventListener("wheel", (event) => {
-      event.preventDefault();
-      if (event.deltaY < 0) scale += 0.1; else scale -= 0.1;
-      scale = Math.min(Math.max(1, scale), 3);
-      mainImage.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-    });
-
-    mainImage.parentElement.addEventListener("mousedown", (event) => {
-      if (scale > 1) {
-        isDragging = true;
-        startX = event.clientX - posX;
-        startY = event.clientY - posY;
-      }
-    });
-
-    mainImage.parentElement.addEventListener("mousemove", (event) => {
-      if (!isDragging) return;
-      posX = event.clientX - startX;
-      posY = event.clientY - startY;
-      mainImage.style.transform = `translate(${posX}px, ${posY}px) scale(${scale})`;
-    });
-
-    window.addEventListener("mouseup", () => { isDragging = false; });
-
-    // Guardar
-    let saveCount = 0;
-    document.getElementById("saveBtn").addEventListener("click", () => {
-      saveCount++;
-      document.getElementById("saveCount").innerText = `${saveCount} guardados`;
-    });
-
-    // Stock dinámico
-    let stock = 5;
-    const stockEl = document.getElementById("stock");
-    function reduceStock() {
-      if (stock > 0) {
-        stock--;
-        stockEl.innerText = `Quedan ${stock} unidades`;
-      }
-    }
-    // Simulación: reducir cada 10s
-    setInterval(reduceStock, 10000);
+    // Mostrar primero
+    showBanner(currentIndex);
   </script>
 
 </body>
