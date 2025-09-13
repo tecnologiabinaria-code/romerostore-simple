@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clip Holster OtterBox Defender | Romero Store</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Borde activo de miniatura */
+    .thumbnail.active {
+      border: 2px solid #f97316; /* naranja */
+    }
+  </style>
 </head>
 <body class="bg-gray-100 font-sans">
 
@@ -15,15 +21,16 @@
     <div class="flex">
       <!-- Miniaturas -->
       <div class="flex flex-col space-y-3 mr-4">
-        <img src="otterbox_final_1.jpg" alt="Miniatura 1" class="thumbnail w-20 h-20 object-contain border cursor-pointer rounded">
+        <img src="otterbox_final_1.jpg" alt="Miniatura 1" class="thumbnail w-20 h-20 object-contain border cursor-pointer rounded active">
         <img src="otterbox_final_2.jpg" alt="Miniatura 2" class="thumbnail w-20 h-20 object-contain border cursor-pointer rounded">
         <img src="otterbox_final_3.jpg" alt="Miniatura 3" class="thumbnail w-20 h-20 object-contain border cursor-pointer rounded">
       </div>
 
-      <!-- Imagen principal -->
-      <div class="flex-1">
-        <img id="mainImage" src="otterbox_final_1.jpg" alt="Clip Holster OtterBox Defender" 
-             class="w-full h-96 object-contain border rounded">
+      <!-- Imagen principal con zoom -->
+      <div class="flex-1 relative overflow-hidden">
+        <img id="mainImage" src="otterbox_final_1.jpg" 
+             alt="Clip Holster OtterBox Defender" 
+             class="w-full h-96 object-contain border rounded transform transition-transform duration-200">
       </div>
     </div>
 
@@ -36,28 +43,54 @@
         Resistente, práctico y seguro.
       </p>
 
+      <!-- Promoción estilo marketplace -->
+      <div class="mb-4">
+        <span class="bg-green-100 text-green-700 font-semibold px-2 py-1 rounded">🔥 Oferta limitada</span>
+      </div>
+
       <!-- Precio -->
       <div class="mb-4">
         <span class="text-3xl font-bold text-red-600">$10.00</span>
         <span class="line-through text-gray-400 ml-3">$15.00</span>
       </div>
 
-      <!-- Botón Comprar -->
-      <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-lg shadow-md text-lg">
+      <!-- Botón Comprar por WhatsApp -->
+      <a href="https://wa.me/50312345678?text=Hola,%20quiero%20comprar%20el%20Clip%20Holster%20OtterBox%20Defender" 
+         target="_blank" 
+         class="block w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-lg shadow-md text-lg text-center">
         Comprar por WhatsApp
-      </button>
+      </a>
     </div>
   </main>
 
-  <!-- Script para cambiar imagen principal -->
+  <!-- Script para cambiar imagen principal y zoom -->
   <script>
     const thumbnails = document.querySelectorAll(".thumbnail");
     const mainImage = document.getElementById("mainImage");
 
+    // Cambiar imagen principal
     thumbnails.forEach(thumb => {
       thumb.addEventListener("click", () => {
         mainImage.src = thumb.src;
+
+        // Quitar borde activo de todas
+        thumbnails.forEach(t => t.classList.remove("active"));
+        // Poner borde activo a la seleccionada
+        thumb.classList.add("active");
       });
+    });
+
+    // Zoom con rueda del mouse
+    let scale = 1;
+    mainImage.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      if (event.deltaY < 0) {
+        scale += 0.1; // acercar
+      } else {
+        scale -= 0.1; // alejar
+      }
+      scale = Math.min(Math.max(1, scale), 3); // limitar entre 1x y 3x
+      mainImage.style.transform = `scale(${scale})`;
     });
   </script>
 
