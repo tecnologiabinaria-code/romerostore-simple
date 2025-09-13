@@ -5,41 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Romero Store</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .fade {
-      animation: fadeEffect 1s ease-in-out;
-    }
-    @keyframes fadeEffect {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .dot {
-      transition: all 0.3s ease-in-out;
-    }
-    .dot.active {
-      transform: scale(1.5);
-    }
-  </style>
 </head>
 <body class="bg-gray-100 font-sans">
 
   <!-- Header -->
   <header class="bg-black text-white p-4 flex justify-between items-center">
     <h1 class="text-xl font-bold">Romero Store</h1>
-    <input type="text" placeholder="Buscar productos..." 
-           class="px-3 py-2 rounded text-black w-60">
+    <input type="text" placeholder="Buscar productos..." class="px-3 py-2 rounded text-black w-64">
   </header>
 
-  <!-- Slider de Banners -->
-  <section class="relative w-full h-64 overflow-hidden">
-
-    <!-- Banner 1 -->
+  <!-- Carrusel -->
+  <section class="relative w-full max-w-6xl mx-auto mt-4 overflow-hidden rounded-lg shadow-lg">
+    <!-- Banner 1 mejorado -->
     <div class="banner absolute inset-0 w-full h-64">
-      <img src="banner.jpg" alt="Banner Romero Store" class="w-full h-64 object-cover">
+      <img src="banner.jpg" alt="Romero Store Accesorios y Moda" class="w-full h-64 object-cover">
       <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white">
-        <h2 class="text-3xl md:text-4xl font-bold">Bienvenido a Romero Store</h2>
-        <p class="mt-2 text-lg">Accesorios y moda con entrega rápida</p>
-        <a href="#catalogo" class="mt-4 bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-lg font-bold">
+        <h2 class="text-3xl md:text-5xl font-bold drop-shadow-lg">Bienvenido a Romero Store</h2>
+        <p class="mt-2 text-lg md:text-xl">Accesorios y moda con entrega rápida</p>
+        <a href="#catalogo" class="mt-4 bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-bold shadow-lg">
           Ver catálogo
         </a>
       </div>
@@ -47,137 +30,114 @@
 
     <!-- Banner 2 -->
     <div class="banner absolute inset-0 w-full h-64 hidden">
-      <div class="w-full h-64 bg-gradient-to-r from-purple-700 via-indigo-700 to-blue-600 flex flex-col justify-center items-center text-center text-white">
-        <h2 class="text-3xl md:text-5xl font-bold drop-shadow-lg">Romero Store</h2>
-        <p class="mt-3 text-lg md:text-xl">Accesorios y moda con estilo — Entrega rápida</p>
-        <a href="#catalogo" class="mt-5 bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-bold shadow-lg">
+      <div class="w-full h-64 bg-gradient-to-r from-purple-600 to-indigo-600 flex flex-col justify-center items-center text-center text-white">
+        <h2 class="text-3xl md:text-5xl font-bold">Nuevas Ofertas</h2>
+        <p class="mt-2 text-lg md:text-xl">Hasta 40% de descuento en accesorios</p>
+        <a href="#catalogo" class="mt-4 bg-white text-purple-700 hover:bg-gray-200 px-6 py-3 rounded-lg font-bold shadow-lg">
           Ver catálogo
         </a>
       </div>
     </div>
 
-    <!-- Banner 3 (Promoción 2025) -->
+    <!-- Banner 3 -->
     <div class="banner absolute inset-0 w-full h-64 hidden">
-      <div class="w-full h-64 bg-gradient-to-r from-pink-600 via-red-500 to-yellow-500 flex flex-col justify-center items-center text-center text-white">
+      <img src="banner2.jpg" alt="Ofertas Romero Store" class="w-full h-64 object-cover">
+      <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white">
         <h2 class="text-3xl md:text-5xl font-bold drop-shadow-lg">✨ Nuevos Productos 2025</h2>
         <p class="mt-3 text-lg md:text-xl">Ofertas especiales en moda y accesorios</p>
-        <a href="#catalogo" class="mt-5 bg-black hover:bg-gray-800 px-6 py-3 rounded-lg font-bold shadow-lg">
+        <a href="#catalogo" class="mt-5 bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-bold shadow-lg">
           Comprar ahora
         </a>
       </div>
     </div>
 
     <!-- Botones navegación -->
-    <button id="prevBtn" class="absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-40 text-white px-3 py-2 rounded-full hover:bg-opacity-70">
-      ⬅️
-    </button>
-    <button id="nextBtn" class="absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-40 text-white px-3 py-2 rounded-full hover:bg-opacity-70">
-      ➡️
-    </button>
+    <button id="prev" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full">❮</button>
+    <button id="next" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full">❯</button>
 
     <!-- Indicadores -->
-    <div class="absolute bottom-6 w-full flex flex-col items-center">
-      <div class="flex space-x-3">
-        <span class="dot w-4 h-4 bg-white rounded-full opacity-50 cursor-pointer"></span>
-        <span class="dot w-4 h-4 bg-white rounded-full opacity-50 cursor-pointer"></span>
-        <span class="dot w-4 h-4 bg-white rounded-full opacity-50 cursor-pointer"></span>
-      </div>
-      <p id="bannerCounter" class="text-white text-sm mt-2">1 / 3</p>
+    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-2">
+      <span id="indicator" class="text-white text-sm">1 / 3</span>
+    </div>
+    <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-3">
+      <span class="dot w-4 h-4 bg-white rounded-full opacity-70 cursor-pointer transition-transform transform scale-100"></span>
+      <span class="dot w-4 h-4 bg-white rounded-full opacity-50 cursor-pointer transition-transform transform scale-75"></span>
+      <span class="dot w-4 h-4 bg-white rounded-full opacity-50 cursor-pointer transition-transform transform scale-75"></span>
     </div>
   </section>
 
   <!-- Catálogo -->
-  <main id="catalogo" class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 max-w-6xl mx-auto">
-    
+  <section id="catalogo" class="max-w-6xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
     <!-- Producto 1 -->
-    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center">
+    <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
       <a href="producto-clip.html">
-        <img src="otterbox_final_1.jpg" alt="Clip Holster OtterBox Defender" 
-             class="w-40 h-40 object-contain mb-4">
+        <img src="otterbox_final_1.jpg" alt="Clip Holster OtterBox Defender" class="w-full h-48 object-contain mb-4">
       </a>
-      <h2 class="text-lg font-semibold">Clip Holster OtterBox Defender</h2>
-      <p class="mt-2">
+      <h3 class="text-lg font-semibold">Clip Holster OtterBox Defender</h3>
+      <div class="mt-2">
         <span class="text-red-600 font-bold text-xl">$10.00</span>
         <span class="line-through text-gray-400 ml-2">$15.00</span>
-      </p>
-      <button class="mt-4 w-full bg-orange-500 text-white py-2 rounded-lg font-bold hover:bg-orange-600">
+      </div>
+      <a href="producto-clip.html" class="mt-4 block bg-orange-500 hover:bg-orange-600 text-white text-center font-bold py-2 rounded-lg">
         Comprar
-      </button>
+      </a>
     </div>
 
     <!-- Producto 2 -->
-    <div class="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center">
+    <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
       <a href="producto-vestido.html">
-        <img src="vestido.png" alt="Vestido Morado Elegante" 
-             class="w-40 h-40 object-contain mb-4">
+        <img src="vestido.png" alt="Vestido Morado Elegante" class="w-full h-48 object-contain mb-4">
       </a>
-      <h2 class="text-lg font-semibold">Vestido Morado Elegante</h2>
-      <p class="mt-2">
+      <h3 class="text-lg font-semibold">Vestido Morado Elegante</h3>
+      <div class="mt-2">
         <span class="text-red-600 font-bold text-xl">$25.00</span>
         <span class="line-through text-gray-400 ml-2">$35.00</span>
-      </p>
-      <button class="mt-4 w-full bg-orange-500 text-white py-2 rounded-lg font-bold hover:bg-orange-600">
+      </div>
+      <a href="producto-vestido.html" class="mt-4 block bg-orange-500 hover:bg-orange-600 text-white text-center font-bold py-2 rounded-lg">
         Comprar
-      </button>
+      </a>
     </div>
-
-  </main>
+  </section>
 
   <!-- Footer -->
-  <footer class="bg-black text-white text-center py-4 mt-8">
+  <footer class="bg-black text-white text-center py-4 mt-6">
     © 2025 Romero Store — Todos los derechos reservados
   </footer>
 
-  <!-- Script Slider -->
+  <!-- Script carrusel -->
   <script>
-    let currentIndex = 0;
     const banners = document.querySelectorAll('.banner');
     const dots = document.querySelectorAll('.dot');
-    const counter = document.getElementById("bannerCounter");
+    const indicator = document.getElementById('indicator');
+    let index = 0;
 
-    function showBanner(index) {
-      banners.forEach((banner, i) => {
-        banner.classList.add('hidden');
-        banner.classList.remove('fade');
-        dots[i].classList.remove('bg-orange-500', 'active');
-        dots[i].classList.add('bg-white', 'opacity-50');
-        if (i === index) {
-          banner.classList.remove('hidden');
-          banner.classList.add('fade');
-          dots[i].classList.remove('bg-white', 'opacity-50');
-          dots[i].classList.add('bg-orange-500', 'active');
-        }
+    function showBanner(i) {
+      banners.forEach((b, j) => b.classList.toggle('hidden', j !== i));
+      dots.forEach((d, j) => {
+        d.classList.toggle('opacity-70', j === i);
+        d.classList.toggle('opacity-50', j !== i);
+        d.classList.toggle('scale-100', j === i);
+        d.classList.toggle('scale-75', j !== i);
       });
-      counter.textContent = `${index + 1} / ${banners.length}`;
+      indicator.textContent = `${i + 1} / ${banners.length}`;
     }
 
-    function nextBanner() {
-      currentIndex = (currentIndex + 1) % banners.length;
-      showBanner(currentIndex);
-    }
-
-    function prevBanner() {
-      currentIndex = (currentIndex - 1 + banners.length) % banners.length;
-      showBanner(currentIndex);
-    }
-
-    // Botones manuales
-    document.getElementById("nextBtn").addEventListener("click", nextBanner);
-    document.getElementById("prevBtn").addEventListener("click", prevBanner);
-
-    // Clic en indicadores
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        currentIndex = index;
-        showBanner(currentIndex);
-      });
+    document.getElementById('prev').addEventListener('click', () => {
+      index = (index - 1 + banners.length) % banners.length;
+      showBanner(index);
     });
 
-    // Cambio automático cada 5s
-    setInterval(nextBanner, 5000);
+    document.getElementById('next').addEventListener('click', () => {
+      index = (index + 1) % banners.length;
+      showBanner(index);
+    });
 
-    // Mostrar primero
-    showBanner(currentIndex);
+    dots.forEach((dot, i) => dot.addEventListener('click', () => {
+      index = i;
+      showBanner(index);
+    }));
+
+    showBanner(index);
   </script>
 
 </body>
